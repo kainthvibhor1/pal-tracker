@@ -51,6 +51,7 @@ test.environment([
         "WELCOME_MESSAGE": "Hello from test",
         "SPRING_DATASOURCE_URL": testDbUrl,
         "MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE": "*",
+        "MANAGEMENT_ENDPOINT_HEALTH_SHOWDETAILS": "always",
 ])
 
 flyway {
@@ -62,4 +63,7 @@ flyway {
 
 task testMigrate(type: FlywayMigrateTask) {
     url = testDbUrl
+}
+springBoot {
+    buildInfo()
 }
